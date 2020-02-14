@@ -18,7 +18,7 @@ class Grader:
 
 name = raw_input("What is your name?")
 assignment = raw_input("What is the assignment name?")
-grade = int(raw_input("What is the (numeric) grade on the assignment?"))
+grade = float(raw_input("What is the (numeric) grade on the assignment?"))
 
 gradeAssignment = Grader(name, assignment, grade)
-gradeAssignment.letterGrader()
+gradeAssignment.letterGrader() 
