@@ -83,7 +83,6 @@ router.post("/login", function (req, res) {
         sess.loggedin = false;
         res.render("index", {pagename: "Home", errors:errors});
     }
-    res.render("index", { pagename: "Home", errors: errors });
 })
 router.get("/profile", function (req, res) {
     sess = req.session;
@@ -100,66 +99,6 @@ router.get("/logout", function (req, res) {
     sess.destroy(function (err) {
         res.redirect("/");
     })
-})
-
-class NewUser {
-    constructor() {
-
-    }
-}
-
-var failedSub = [];
-var successSub = [];
-router.post("/subscribe", function (req, res) {
-    let verified = true;
-    if (req.body.fname == "") {
-        failedSub.push("first name is required")
-        verified = false;
-    }
-    if (req.body.lname == "") {
-        failedSub.push("last name is required")
-        verified = false;
-    }
-    if (req.body.address == "") {
-        failedSub.push("address is required")
-        verified = false;
-    }
-    if (req.body.city == "") {
-        failedSub.push("city is required")
-        verified = false;
-    }
-    if (req.body.state == "") {
-        failedSub.push("state is required")
-        verified = false;
-    }
-    if (req.body.zip < 0) {
-        failedSub.push("zip code is required")
-        verified = false;
-    }
-    if (req.body.age == "undefined") {
-        failedSub.push("age must be confirmed")
-        verified = false;
-    }
-    if (req.body.terms == "undefined") {
-        failedSub.push("terms must be confirmed")
-        verified = false;
-    }
-    if (verified) {
-        let user = new NewUser();
-        user.fname = req.body.fname;
-        user.lname = req.body.lname;
-        user.city = req.body.city;
-        user.state = req.body.state;
-        user.address = req.body.address;
-        user.zip = req.body.zip;
-        user.gender = req.body.gender;
-        user.age = req.body.age;
-        user.terms = req.body.terms;
-        user.bio = req.body.bio;
-        successSub.push(user)
-    }
-
-    res.render("index", { pagename: "Home", failedSub: failedSub, successSub: successSub });
 })
 app.use(express.static("public"));
 

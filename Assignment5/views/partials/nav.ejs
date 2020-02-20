@@ -58,7 +58,7 @@
 <% if(typeof(errors)!="undefined"){ %>
   <ul class="list-group">
     <% for(x in errors){ %>
-    <li class="list-group-item">ERRORS: <% errors[x]; console.log(errors[x]) %></li>
+    <li class="list-group-item">ERRORS: <%= errors[x]%></li>
     <% } %>
     </ul>
   <% } %>

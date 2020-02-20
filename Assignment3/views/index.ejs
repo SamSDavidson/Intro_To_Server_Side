@@ -21,7 +21,7 @@
 <%if(typeof(errors)!="undefined"){%>
 <ul>
   <% for (x in errors){%>
-  <li style="color: black'"><%errors[x]%></li>
+  <li style="color: black'"><%= errors[x]%></li>
   <%}%>
   </ul>
 <%}%>
@@ -110,7 +110,7 @@
       <% if(typeof(successSub)!= "undefined"){%>
       <% for(x in successSub){%>
       <br><span>
-        <% successSub[x];%>
+        <%= successSub[x];%>
       </span>
       <% } %>
       <% } %>
@@ -121,7 +121,7 @@
       <% if (typeof(failedSub)!= "undefined"){%>
       <% for(x in failedSub){%>
       <br><span>
-        <%failedSub[x]%>
+        <%= failedSub[x]%>
       </span>
       <% } %>
       <% } %>
