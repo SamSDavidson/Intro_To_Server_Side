@@ -110,7 +110,7 @@
       <% if(typeof(successSub)!= "undefined"){%>
       <% for(x in successSub){%>
       <br><span>
-        <%= successSub[x];%>
+        <%= successSub[x].fname + " " + successSub[x].lname;%>
       </span>
       <% } %>
       <% } %>
@@ -121,7 +121,7 @@
       <% if (typeof(failedSub)!= "undefined"){%>
       <% for(x in failedSub){%>
       <br><span>
-        <%= failedSub[x]%>
+        <%= failedSub[x].toString()%>
       </span>
       <% } %>
       <% } %>
